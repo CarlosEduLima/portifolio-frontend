@@ -1,209 +1,121 @@
 import Head from 'next/head'
+import Link from 'next/link'
+import Main from '../components/main'
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid'
+import Github from '@material-ui/icons/GitHub'
+import LinkedIn from '@material-ui/icons/LinkedIn'
+const useStyles = makeStyles(() => ({
+  root: {
+    flexGrow: 1,
+  },
+  container: {
+    minHeight: '100vh',
+    padding: '0 0.5rem',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  landingGrid: {
+    background: 'linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);',
+    textAlign: 'center',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+  },
+  avatarImg: {
+    height: '250px',
+    width:'185px',
+    paddingTop: '6em',
+    borderRadius:'50%'
+  },
 
+  bannerText: {
+    backgroundColor: 'black',
+    opacity: .8,
+    width: '75%',
+    margin: 'auto',
+    borderRadius: '10px',
+  },
+
+  title: {
+    fontSize: '66px',
+    fontWeight: 'bold',
+    color: 'white',
+  },
+
+  hr: {
+    width: '50%',
+    margin: 'auto',
+  },
+
+  text: {
+    color: 'white',
+    fontSize: '20px',
+    padding: '1em',
+  },
+
+  socialLinks: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '50%',
+    margin: 'auto',
+  },
+
+  list: {
+    color: 'white',
+    fontSize: '5em',
+    padding: '16px',
+  },
+  iconSize: {
+    fontSize: '50px'
+  }
+
+}));
 export default function Home() {
+  const classes = useStyles()
   return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <Main>
+        <div className={classes.container}>
+          <Head>
+            <title>Home</title>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <Grid container className={classes.landingGrid}>
+            <Grid item xs={12}>
+              <img
+                src="https://avatarsapphire.s3.us-east-2.amazonaws.com/IMG_20200714_114407+(2).jpg"
+                alt="avatar"
+                className={classes.avatarImg}
+              />
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+              <div className={classes.bannerText}>
+                <h1 className={classes.title}>Desenvolvedor Web</h1>
 
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
+                <hr className={classes.hr} />
 
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+                <p className={classes.text}>NodeJS | Express | PostgreSQL | SQL | HTML/CSS | JavaScript | React </p>
+                  <Grid container>
+                    <Grid item xs>
+                      <a href="https://www.linkedin.com/in/carlos-eduardo-alves-de-lima-a0b989189/" rel="noopener noreferrer" target="_blank">
+                        <LinkedIn className={classes.iconSize} />
+                      </a>
+                    </Grid>
+                    <Grid item xs>
+                      <a href="https://github.com/CarlosEduLima" rel="noopener noreferrer" target="_blank">
+                        <Github className={classes.iconSize} />
+                      </a>
+                    </Grid>
+                  </Grid>
+              </div>
+            </Grid>
+          </Grid>
         </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
+      </Main>
+    </>
   )
 }
